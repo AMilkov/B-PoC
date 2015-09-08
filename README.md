@@ -1,6 +1,6 @@
 ![MammothDB](https://github.com/AMilkov/B-PoC/blob/master/Documentation/logo.jpg "MammothDB")
 
-## MammothDB PoC for Bajaj finance
+## MammothDB&copy; PoC for Bajaj finance
 
 
 * **Fact tables** are located in the [Facts directory](https://github.com/AMilkov/B-PoC/blob/master/Facts)
@@ -10,9 +10,9 @@
 
 The **benchmark** file is: **[benchmark](https://github.com/AMilkov/B-PoC/blob/master/benchmark.md)**
 
-As a general rule the database behave exactly as MySQL database with the exception of the tables that are using the MammothDB engine.
+As a general rule the database behave exactly as MySQL database with the exception of the tables that are using the MammothDB&copy; engine.  
 Those tables are easili recognizable, since they are defined using **`ENGINE=MDB`**
 
 ---
 
-For more information on MammothDB: **[www.MammothDB.com](http://www.mammothdb.com/)**
+For more information: **[www.MammothDB.com](http://www.mammothdb.com/)**
