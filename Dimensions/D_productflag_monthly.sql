@@ -1,6 +1,6 @@
 
-DROP TABLE IF EXISTS BAJAJ_DM.D_productflag;
-CREATE TABLE BAJAJ_DM.`D_productflag` (
+DROP TABLE IF EXISTS BAJAJ_DM.D_productflag_monthly;
+CREATE TABLE BAJAJ_DM.`D_productflag_monthly` (
     id TINYINT NOT NULL,
     `name` varchar(20) NOT NULL
 )ENGINE=MDB DEFAULT CHARSET=utf8;
@@ -17,7 +17,7 @@ ALTER TABLE BAJAJ_DM.temporary_table AUTO_INCREMENT = 1;
 insert into BAJAJ_DM.temporary_table (name)
 select distinct PRODUCTFLAG from bajaj_orig.facmonthly;
 
-insert into BAJAJ_DM.D_productflag (id, name)
+insert into BAJAJ_DM.D_productflag_monthly (id, name)
 select id, name from BAJAJ_DM.temporary_table;
 DROP TABLE IF EXISTS `BAJAJ_DM`.`temporary_table`;
 

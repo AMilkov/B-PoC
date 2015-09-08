@@ -1,11 +1,12 @@
-DROP TABLE IF EXISTS BAJAJ_DM.D_parent_lan_product;
-CREATE TABLE BAJAJ_DM.`D_parent_lan_product` (
-		id TINYINT NOT NULL,
-		`name` varchar(20) NOT NULL
+
+DROP TABLE IF EXISTS BAJAJ_DM.D_productflag_daily;
+CREATE TABLE BAJAJ_DM.`D_productflag_daily` (
+    id TINYINT NOT NULL,
+    `name` varchar(20) NOT NULL
 )ENGINE=MDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS BAJAJ_DM.temporary_table;
-CREATE TABLE BAJAJ_DM.temporary_table (
+DROP TABLE IF EXISTS `BAJAJ_DM`.`temporary_table`;
+CREATE TABLE `BAJAJ_DM`.`temporary_table` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(20) NOT NULL,
   primary key (id),
@@ -14,9 +15,9 @@ ENGINE = INNODB;
 
 ALTER TABLE BAJAJ_DM.temporary_table AUTO_INCREMENT = 1;
 insert into BAJAJ_DM.temporary_table (name)
-select distinct PARENT_LAN_PRODUCT from bajaj_orig.facmonthly;
+select distinct PRODUCTFLAG from bajaj_orig.factdaily;
 
-insert into BAJAJ_DM.D_parent_lan_product (id, name)
+insert into BAJAJ_DM.D_productflag_daily (id, name)
 select id, name from BAJAJ_DM.temporary_table;
 DROP TABLE IF EXISTS `BAJAJ_DM`.`temporary_table`;
 

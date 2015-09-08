@@ -1,9 +1,16 @@
-![MammothDB](https://github.com/AMilkov/B-PoC/blob/master/Documentation/logo.png "MammothDB")
+![MammothDB](https://github.com/AMilkov/B-PoC/blob/master/Documentation/logo.jpg "MammothDB")
 
 ## MammothDB PoC for Bajaj finance
 
-The fact tables are located in the Facts directory.  
-The dimension tables are located in the Dimensions directory.  
-The queries are located in the Queries directory.  
 
-The file with the benchmark is: **[benchmark.db](https://github.com/AMilkov/B-PoC/blob/master/benchmark.md)**
+* **Fact tables** are located in the [Facts directory](https://github.com/AMilkov/B-PoC/blob/master/Facts)
+* **Dimension tables** are located in the [Dimensions directory](https://github.com/AMilkov/B-PoC/blob/master/Dimensions)
+* **Queries** are located in the [Queries directory](https://github.com/AMilkov/B-PoC/blob/master/Queries)
+* **The Documentation** is located in the [documentation directory](https://github.com/AMilkov/B-PoC/blob/master/Documentation)
+
+The **benchmark** file is: **[benchmark](https://github.com/AMilkov/B-PoC/blob/master/benchmark.md)**
+
+As a general rule the database behave exactly as MySQL database with the exception fo the tables that are using the MammothDB engine.
+Those tables are defined using **`ENGINE=MDB`**
+
+For more information on MammothDB: **[www.MammothDB.com](http://www.mammothdb.com/)**
