@@ -10,7 +10,9 @@
 
 The **benchmark** file is: **[benchmark](https://github.com/AMilkov/B-PoC/blob/master/benchmark.md)**
 
-As a general rule the database behave exactly as MySQL database with the exception fo the tables that are using the MammothDB engine.
-Those tables are defined using **`ENGINE=MDB`**
+As a general rule the database behave exactly as MySQL database with the exception of the tables that are using the MammothDB engine.
+Those tables are easili recognizable, since they are defined using **`ENGINE=MDB`**
+
+---
 
 For more information on MammothDB: **[www.MammothDB.com](http://www.mammothdb.com/)**
