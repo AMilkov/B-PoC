@@ -9,5 +9,7 @@ INNER JOIN
 ) B
 ON A.AGREEMENTNO=B.EXISTING_LANNO AND A.BUSINESS_DATE=B.BUSINESS_DATE
 WHERE A.BUSINESS_DATE='2015-05-31';
+-- 1722 rows in set (2.03 sec)
 
--- NB: This query can be further improved by creating separate fact or dimension table to store the sub-query result set
+
+-- NB: This query can be further improved by creating separate fact or dimension table to store the sub-query result set. The current size of the set is 28,656 rows.
