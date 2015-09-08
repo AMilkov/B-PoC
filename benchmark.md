@@ -1,5 +1,5 @@
 
-Name | Original Time Required | MammothDB timing | Improvement  
+Name | Original Time Required | MammothDB&copy; timing | Improvement  
 --- |:---:|:---:|:---:|:---:|
 BUCKET STRING | 25 min 17 sec | 7.54 sec | 201.19 times faster
 BALIC LOAN Taken | 5 Sec | 2.03 sec | 2.46 times faster
