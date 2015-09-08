@@ -1,3 +1,5 @@
+![MammothDB](https://github.com/AMilkov/B-PoC/blob/master/Documentation/logo.png "MammothDB")
+
 ## MammothDB PoC for Bajaj finance
 
 The fact tables are located in the Facts directory.  
