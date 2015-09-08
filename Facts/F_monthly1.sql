@@ -1,0 +1,35 @@
+-- Monthly fact table partitioned by APPLID, used for Query_1
+DROP TABLE IF EXISTS BAJAJ_DM.F_monthly1;
+CREATE TABLE BAJAJ_DM.F_monthly1 (
+  APPLID decimal(8,0) NOT NULL,
+  LMS_BUCKET decimal(3,0) DEFAULT NULL,
+  BUSINESS_DATE date DEFAULT NULL,
+  EXISTING_LANNO varchar(20) DEFAULT NULL,
+  AGREEMENTNO varchar(20) DEFAULT NULL,
+  d_balic_flag TINYINT DEFAULT NULL,
+  POS decimal(16,2) DEFAULT NULL
+) ENGINE=MDB DEFAULT CHARSET=utf8 PARTITION BY KEY(APPLID);
+
+INSERT INTO BAJAJ_DM.F_monthly1 (
+APPLID, 
+LMS_BUCKET, 
+BUSINESS_DATE, 
+EXISTING_LANNO, 
+AGREEMENTNO, 
+d_balic_flag,
+POS
+)
+( 
+    SELECT 
+        APPLID, 
+        LMS_BUCKET, 
+        BUSINESS_DATE, 
+        EXISTING_LANNO, 
+        AGREEMENTNO, 
+        CASE WHEN PRODUCTFLAG LIKE '%BALIC%' THEN 1 ELSE 0 END,
+        POS
+    FROM bajaj_orig.facmonthly
+);
+
+SHOW WARNINGS;
+
