@@ -49,6 +49,7 @@ INSERT INTO BAJAJ_DM.rank_statistics_totals_2015_05 (BUSINESS_DATE, CUSTOMERKEY,
     GROUP BY CUSTOMERKEY
     ORDER BY SUM(AMTFIN) DESC
 );
+-- Query OK, 7552905 rows affected (1 min 18.04 sec)
 
 -- List of the top 1M clients ranked by AMTFIN with calculated totals
 SELECT * FROM BAJAJ_DM.rank_statistics_totals_2015_05 ORDER BY rank LIMIT 1000000;
