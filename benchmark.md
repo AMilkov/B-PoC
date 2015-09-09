@@ -16,3 +16,6 @@ List of the top 1M clients ranked by AMTFIN total| - | 3.73 sec | The computing 
 *Those instances have approximately 1/8 of the computing power of the current Bajaj Finance MapR cluster hardware.*
 
 \* *The timing is done after database warm-up.*
+
+\* *Since some of the result sets can be big in order to ignore the terminal time needed to output millions of row we recommend the output to be redirected.*  
+*For example `pager > /dev/null` or `pager >output_file.txt`*
