@@ -18,7 +18,7 @@ To connect to the local database CLI use the command:
 mysql -S /var/lib/mammothdb/mdb-qe.sock
 ```
 
-The SSH credentials for the cluster will be shared via email
+The SSH credentials for the cluster and the database credentials will be shared via email
 
 ---
 
