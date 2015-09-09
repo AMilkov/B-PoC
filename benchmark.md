@@ -12,7 +12,7 @@ List of the top 1M clients ranked by AMTFIN total| - | 3.73 sec | The computing 
 
 ---
 
-\* The hardware used is 6 x m4.large (CPU:2, RAM:8GB) AWS EC2 instances.  
-Those instances have approximately 1/8 of the computing power of the current Bajaj Finance MapR cluster hardware.
+\* *The hardware used is 6 x m4.large (CPU:2, RAM:8GB) AWS EC2 instances.*  
+*Those instances have approximately 1/8 of the computing power of the current Bajaj Finance MapR cluster hardware.*
 
-\* The timing is done after database warm-up. 
+\* *The timing is done after database warm-up.*
