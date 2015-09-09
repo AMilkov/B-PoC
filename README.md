@@ -11,7 +11,14 @@
 The **benchmark** file is: **[benchmark](https://github.com/AMilkov/B-PoC/blob/master/benchmark.md)**
 
 As a general rule the database behave exactly as MySQL database with the exception of the tables that are using the MammothDB&copy; engine.  
-Those tables are easili recognizable, since they are defined using **`ENGINE=MDB`**
+Those tables are easily recognizable, since they are defined using **`ENGINE=MDB`**  
+
+To connect to the local database CLI use the command:
+```
+mysql -S /var/lib/mammothdb/mdb-qe.sock
+```
+
+The SSH credentials for the cluster will be shared via email
 
 ---
 
