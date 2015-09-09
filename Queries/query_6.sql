@@ -8,25 +8,48 @@ ORDER BY FM.AMTFIN DESC;
 
 
 -- Alternative high concurency & high performance approach to the ranking task
--- Technique to compute the RANK during the incremental daily or monthly ETL process
-INSERT INTO BAJAJ_DM.rank_statistics (BUSINESS_DATE, CUSTOMERKEY, AMTFIN)
+-- Technique to compute the RANK only once during the incremental daily or monthly ETL process
+DROP TABLE IF EXISTS BAJAJ_DM.rank_statistics_2015_05;
+CREATE TABLE BAJAJ_DM.rank_statistics_2015_05 (
+    rank BIGINT NOT NULL AUTO_INCREMENT,
+    BUSINESS_DATE DATE NOT NULL,
+    CUSTOMERKEY int(11) DEFAULT NULL,
+    AMTFIN decimal(16,2) DEFAULT NULL,
+    PRIMARY KEY (rank)
+) ENGINE = MyISAM;
+ALTER TABLE BAJAJ_DM.rank_statistics_2015_05 AUTO_INCREMENT = 1;
+INSERT INTO BAJAJ_DM.rank_statistics_2015_05 (BUSINESS_DATE, CUSTOMERKEY, AMTFIN)
 (
     SELECT '2015-05-31', CUSTOMERKEY, AMTFIN
     FROM BAJAJ_DM.F_monthly2
     WHERE BUSINESS_DATE='2015-05-31'
     ORDER BY AMTFIN DESC
 );
+-- Query OK, 13133853 rows affected (1 min 29.52 sec)
 
+-- List of the top 1M clients ranked by AMTFIN
+SELECT * FROM BAJAJ_DM.rank_statistics_2015_05 ORDER BY rank LIMIT 1000000;
+-- 1000000 rows in set (3.73 sec)
 
+-- Same as above, but with grouping on CUSTOMERKEY and calculating loan totals per customer 
+DROP TABLE IF EXISTS BAJAJ_DM.rank_statistics_totals_2015_05;
+CREATE TABLE BAJAJ_DM.rank_statistics_totals_2015_05 (
+    rank BIGINT NOT NULL AUTO_INCREMENT,
+    BUSINESS_DATE DATE NOT NULL,
+    CUSTOMERKEY int(11) DEFAULT NULL,
+    AMTFIN decimal(16,2) DEFAULT NULL,
+    PRIMARY KEY (rank)
+) ENGINE = MyISAM;
+ALTER TABLE BAJAJ_DM.rank_statistics_totals_2015_05 AUTO_INCREMENT = 1;
+INSERT INTO BAJAJ_DM.rank_statistics_totals_2015_05 (BUSINESS_DATE, CUSTOMERKEY, AMTFIN)
+(
+    SELECT MAX('2015-05-31'), CUSTOMERKEY, SUM(AMTFIN)
+    FROM BAJAJ_DM.F_monthly2
+    WHERE BUSINESS_DATE='2015-05-31'
+    GROUP BY CUSTOMERKEY
+    ORDER BY SUM(AMTFIN) DESC
+);
 
-
-----------------------
--- RANK Customer AMTFIN
--- 10 loans for particular CUSTOMERID
--- AMTFIN amount taken,
--- rows: 16M, speed:
-SELECT DC.CUSTOMERID,FM.PRODUCTFLAG,FM.AMTFIN,RANK() OVER ( PARTITION BY DC.CUSTOMERID ORDER BY FM.AMTFIN DESC )
-FROM facmonthly FM
-JOIN DimCustomer DC ON FM.CUSTOMERKEY=DC.CUSTOMERKEY
-WHERE FM.BUSINESS_DATE='2015-05-31'
-
+-- List of the top 1M clients ranked by AMTFIN with calculated totals
+SELECT * FROM BAJAJ_DM.rank_statistics_totals_2015_05 ORDER BY rank LIMIT 1000000;
+-- 

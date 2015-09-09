@@ -8,10 +8,10 @@
 * **Queries** are located in the [Queries directory](https://github.com/AMilkov/B-PoC/blob/master/Queries)
 * **The Documentation** is located in the [documentation directory](https://github.com/AMilkov/B-PoC/blob/master/Documentation)
 
-The **benchmark** file is: **[benchmark](https://github.com/AMilkov/B-PoC/blob/master/benchmark.md)**
+The **benchmark** file is: **[benchmark.md](https://github.com/AMilkov/B-PoC/blob/master/benchmark.md)**
 
 As a general rule the database behave exactly as MySQL database with the exception of the tables that are using the MammothDB&copy; engine.  
-Those tables are easily recognizable, since they are defined using **`ENGINE=MDB`**  
+Those tables are easily distinguishable from the rest, since they are defined using **`ENGINE=MDB`**  
 
 To connect to the local database CLI use the command:
 ```
