@@ -1,8 +1,8 @@
 -- Monthly fact table partitioned by APPLID, used for Query_1
 DROP TABLE IF EXISTS BAJAJ_DM.F_monthly1;
 CREATE TABLE BAJAJ_DM.F_monthly1 (
-  APPLID decimal(8,0) NOT NULL,
-  LMS_BUCKET decimal(3,0) DEFAULT NULL,
+  APPLID int NOT NULL,
+  LMS_BUCKET int DEFAULT NULL,
   BUSINESS_DATE date DEFAULT NULL,
   EXISTING_LANNO varchar(20) DEFAULT NULL,
   AGREEMENTNO varchar(20) DEFAULT NULL,

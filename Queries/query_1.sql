@@ -34,5 +34,5 @@ WHERE A.BUSINESS_DATE='2014-07-31'
      AND I.BUSINESS_DATE='2015-03-31'
      AND J.BUSINESS_DATE='2015-04-30'
      AND K.BUSINESS_DATE='2015-05-31';
--- 102874 rows in set (7.54 sec)
+-- 11,033,828 rows in set (2 min 5.60 sec)
 

@@ -4,7 +4,7 @@ FROM BAJAJ_DM.F_monthly2 FM
 JOIN BAJAJ_DM.F_customer DC ON FM.CUSTOMERKEY=DC.CUSTOMERKEY
 WHERE FM.BUSINESS_DATE='2015-05-31'
 ORDER BY FM.AMTFIN DESC;
--- 2626087 rows in set (36.84 sec)
+-- 2626087 rows in set (39 sec)
 
 
 -- Alternative high concurency & high performance approach to the ranking task
@@ -25,11 +25,11 @@ INSERT INTO BAJAJ_DM.rank_statistics_2015_05 (BUSINESS_DATE, CUSTOMERKEY, AMTFIN
     WHERE BUSINESS_DATE='2015-05-31'
     ORDER BY AMTFIN DESC
 );
--- Query OK, 13133853 rows affected (1 min 29.52 sec)
+-- Query OK, 13133853 rows affected (1 min 15.62 sec)
 
 -- List of the top 1M clients ranked by AMTFIN
 SELECT * FROM BAJAJ_DM.rank_statistics_2015_05 ORDER BY rank LIMIT 1000000;
--- 1000000 rows in set (3.73 sec)
+-- 1000000 rows in set (4 sec)
 
 -- Same as above, but with grouping on CUSTOMERKEY and calculating loan totals per customer 
 DROP TABLE IF EXISTS BAJAJ_DM.rank_statistics_totals_2015_05;
